@@ -38,11 +38,135 @@ body {
   cursor: pointer;
 }
 
+.saucer {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 200px;
+  background: linear-gradient(to right, #f9f9f9, #e9e9e9);
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 10px 30px rgba(0,0,0,0.1);
+  border: 9px solid gold;
+}
+
+.saucer::before {
+  positon: absolute;
+  content: "";
+  position: absolute;
+  height: 120px;
+  width: 62%;
+  left: 50%;
+  transform: translate(-50%, 65%);
+  bottom: 65%;
+  border-radius: 50%;
+  background: linear-gradient(to right, #f9f9f9, #e9e9e9);
+  border: 3px solid rgb(247, 221, 71);
+  box-shadow: inset 0 10px 30px rgba(0,0,0,0.2);
+}
+.saucer::after {
+  content: "";
+  position: absolute;
+  width: 62%;
+  heigh: 120px;
+  top: 10px;
+  left: 40px;
+  right: 30px;
+  bottom: 30px;
+  background: radial-gradient(rgba(0, 0, 0, 0.2) 12%, transparent, transparent);
+  border-radius: 50%;
+}
+
 .cup {
   position: relative;
   width: 280px;
   height: 300px;
-  background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+  background: linear-gradient(to left, #fff, #d6d6d6);
   border-bottom-left-radius: 40%;
   border-bottom-right-radius: 40%;
+  box-shadow: inset 20px 2px 40px gold;
 }
+.top {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+  border-radius: 50%;
+  border: 4px solid gold;
+}
+
+.vapour {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.vapour span {
+    position: relative;
+    bottom: 50px;
+    display: block;
+    margin: 0 2px 50px;
+    min-width: 8px;
+    height: 120px;
+    background: #ffff;
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+    filter: blur(12px);
+    animation-delay: calc(var(--i) * -0.5s);
+}
+
+.circle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: 50px;
+    background: linear-gradient(to left, #f9f9f9, #d9d9d9);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.coffee {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#a06742, #e28462);
+    border-radius: 50%;
+}
+.handle {
+    position: absolute;
+    right: -70px;
+    top: 60px;
+    width: 165px;
+    height: 180px;
+    border: solid 30px #fffaee;
+    border-left: solid 30px transparent;
+    border-bottom: solid 30px transparent;
+    border-radius: 50%;
+    transform: rotate(43deg);
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) scaleX(4);
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scaleX(1);
+    }
+  }
